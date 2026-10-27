@@ -99,14 +99,14 @@ CACHE_TOKEN=$(aws secretsmanager get-secret-value \
 
 # 2. Testar PING com TLS + senha no ElastiCache for Valkey a partir de um pod efêmero no namespace inventory (esperado: PONG)
 kubectl run valkey-verify --rm -i --restart=Never -n inventory \
-  --image=valkey/valkey:9.1 \
+  --image=valkey/valkey:9.1-alpine \
   --env="CACHE_HOST=$CACHE_HOST" \
   --env="CACHE_TOKEN=$CACHE_TOKEN" \
   -- sh -c 'valkey-cli --tls -h "$CACHE_HOST" -p 6379 -a "$CACHE_TOKEN" --no-auth-warning PING'
 
 # 3. Confirmar que conexão sem senha no ElastiCache é recusada (esperado: NOAUTH Authentication required)
 kubectl run valkey-noauth --rm -i --restart=Never -n inventory \
-  --image=valkey/valkey:9.1 \
+  --image=valkey/valkey:9.1-alpine \
   --env="CACHE_HOST=$CACHE_HOST" \
   -- sh -c 'valkey-cli --tls -h "$CACHE_HOST" -p 6379 PING'
 
