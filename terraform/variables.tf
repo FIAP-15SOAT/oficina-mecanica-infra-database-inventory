@@ -68,13 +68,13 @@ variable "db_max_allocated_storage" {
 variable "db_name" {
   description = "Initial database name"
   type        = string
-  default     = "techchallenge"
+  default     = "inventory"
 }
 
 variable "db_username" {
   description = "Master database username"
   type        = string
-  default     = "techchallenge"
+  default     = "oficina"
 }
 
 variable "db_port" {
