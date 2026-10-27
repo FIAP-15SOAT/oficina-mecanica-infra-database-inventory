@@ -115,7 +115,7 @@ kubectl run pg-verify --rm -i --restart=Never -n inventory \
   --image=postgres:18-alpine \
   --env="PGPASSWORD=$RDS_PASS" \
   --env="RDS_HOST=$RDS_HOST" \
-  -- psql -h "$RDS_HOST" -U techchallenge -d techchallenge -c "SELECT version();"
+  -- psql -h "$RDS_HOST" -U oficina -d inventory -c "SELECT version();"
 ```
 
 ---
