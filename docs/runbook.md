@@ -175,7 +175,7 @@ terraform destroy -auto-approve
 
 ### 4.4 `This object does not have an attribute named eks_nodes_security_group_id`
 
-- **Causa:** o state de `oficina-mecanica-infra-base` no S3 ainda foi gerado antes da change C-02, que exporta o Security Group de identidade dos nós do EKS (`eks_nodes_security_group_id`).
+- **Causa:** o state de `oficina-mecanica-infra-base` no S3 foi gerado por uma versão que ainda não exportava o Security Group de identidade dos nós do EKS (`eks_nodes_security_group_id`).
 - **Correção:** executar o CD (ou `terraform apply`) de `oficina-mecanica-infra-base` na `main` antes de rodar o `plan`/`apply` deste repositório.
 
 Voltar ao [README](../README.md).
