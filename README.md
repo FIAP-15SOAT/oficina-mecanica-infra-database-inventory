@@ -48,7 +48,7 @@ Faz parte do ecossistema de serviços e infraestrutura da pós-graduação em Ar
 
 ### Credenciais, consumidores e migrações
 
-- O [serviço Inventory](https://github.com/FIAP-15SOAT/oficina-mecanica-inventory-service) descobre a instância RDS pelo identificador fixo `rds-oficina-mecanica-inventory` (`RDS_INSTANCE_IDENTIFIER`) e o cache pelo identificador fixo `cache-oficina-mecanica-inventory` e pelo secret `cache-oficina-mecanica-inventory-auth-token` durante o CD (C-14), materializando os Secrets Kubernetes (`database-credentials` e `cache-credentials`) no namespace `inventory` sem ler o state deste repositório.
+- O [serviço Inventory](https://github.com/FIAP-15SOAT/oficina-mecanica-inventory-service) descobre a instância RDS pelo identificador fixo `rds-oficina-mecanica-inventory` (`RDS_INSTANCE_IDENTIFIER`) e o cache pelo identificador fixo `cache-oficina-mecanica-inventory` e pelo secret `cache-oficina-mecanica-inventory-auth-token` durante o CD, materializando os Secrets Kubernetes (`database-credentials` e `cache-credentials`) no namespace `inventory` sem ler o state deste repositório.
 - O job `db-migrate` do **CD do Inventory** executa `prisma migrate deploy` dentro do EKS antes de `app-deploy`. Este Terraform provisiona o RDS e o ElastiCache, mas não cria tabelas nem executa migrations.
 - Nenhum outro microsserviço ou Lambda acessa o banco ou o cache do Inventory diretamente; as leituras de itens por ID ocorrem via endpoints REST internos (`/internal/services/:id` e `/internal/parts-supplies/:id`) e os comandos de reserva e baixa de estoque trafegam via SNS/SQS FIFO.
 
