@@ -293,3 +293,4 @@ A [documentação de CI/CD](docs/ci-cd.md) detalha cada job, step, condição e 
 - [ADR 0003 — Master password gerenciada pelo Amazon RDS](docs/adr/0003-master-password-gerenciada-pelo-rds.md)
 - [ADR 0004 — Um repositório de dados por serviço](docs/adr/0004-um-repositorio-de-dados-por-servico.md)
 - [ADR 0005 — ElastiCache for Valkey com TLS e senha fora do state](docs/adr/0005-elasticache-com-tls-e-senha-fora-do-state.md)
+
