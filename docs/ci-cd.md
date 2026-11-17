@@ -184,7 +184,7 @@ workflows, não apenas o input.
 - `fmt`, init sem backend e `validate` são validações estáticas; não confirmam permissões, conectividade ou um plan de infraestrutura.
 - O plan do CI pode ser pulado quando **a configuração de credenciais falha**. Depois de autenticar, indisponibilidade de state, recurso ou API durante o plan falha o job.
 - No ruleset da branch `main`, o check `Terraform Validation` é obrigatório antes do merge, sem bypass.
-- A ordem de provisionamento/destruição, os testes de conectividade a partir do cluster e as falhas conhecidas estão no [Runbook](runbook.md) e em [Como Executar Localmente](../README.md#-como-executar-localmente).
+- O teste de conexão a partir do cluster e a derrubada estão em [Como Executar Localmente](../README.md#-como-executar-localmente); a ordem de subida e derrubada do ambiente inteiro, no [runbook do `oficina-mecanica-infra-base`](https://github.com/FIAP-15SOAT/oficina-mecanica-infra-base/blob/main/docs/runbook.md).
 
 Decisões relacionadas: [ADR 0001 — RDS gerenciado](adr/0001-banco-gerenciado-amazon-rds.md), [ADR 0002 — decisão substituída](adr/0002-credencial-via-variavel-terraform-sensivel.md), [ADR 0003 — master password gerenciada pelo RDS](adr/0003-master-password-gerenciada-pelo-rds.md), [ADR 0004 — um repositório de dados por serviço](adr/0004-um-repositorio-de-dados-por-servico.md), [ADR 0005 — ElastiCache com TLS e senha fora do state](adr/0005-elasticache-com-tls-e-senha-fora-do-state.md) e [ADR 0003 de infra-base — Tolerância do CI às credenciais](https://github.com/FIAP-15SOAT/oficina-mecanica-infra-base/blob/main/docs/adr/0003-ci-tolerante-a-indisponibilidade-do-lab.md).
 
